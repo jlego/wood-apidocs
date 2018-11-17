@@ -6,6 +6,7 @@ const Docxtemplater = require('docxtemplater');
 const ImageModule = require('docxtemplater-image-module');
 const imageSize = require("image-size");
 const moment = require('moment');
+let CONFIG = {};
 
 class Docx {
   constructor(opts = {}) {
@@ -15,12 +16,13 @@ class Docx {
         project: {},
         apis: {}
       },
+      config: {},
       template: '', //模板文件路径
       output: '', //保存文件路径
       options: null,
-      config: {},
       ...opts
     };
+    CONFIG = this.options.config;
     this.doc = new Docxtemplater();
     this.makeData();
   }
@@ -114,12 +116,12 @@ module.exports = {
   fun: function(req, res, next) {
     let docx = new Docx({
       data: {
-        modulename: this.options.config.projectName,
+        modulename: CONFIG.projectName,
         apis: `../../../docs/api_data.json`,
         project: `../../../docs/api_project.json`
       },
       template: '../template/doctpl/doc.docx',
-      output: `../../../docs/${this.options.config.projectName}_###.docx`
+      output: `../../../docs/${CONFIG.projectName}_###.docx`
     });
     let result = docx.generate();
     if (result) {
