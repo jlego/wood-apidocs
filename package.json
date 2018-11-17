@@ -1,0 +1,30 @@
+{
+  "name": "wood-apidocs",
+  "version": "1.0.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jlego@github.com/jlego/wood-apidocs.git"
+  },
+  "keywords": [
+    "wood-apidocs"
+  ],
+  "author": "jlego",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlego/wood-apidocs/issues"
+  },
+  "homepage": "https://github.com/jlego/wood-apidocs#readme",
+  "dependencies": {
+    "docxtemplater": "^3.9.4",
+    "docxtemplater-image-module": "^3.1.0",
+    "image-size": "^0.6.3",
+    "jszip": "^3.1.5",
+    "moment": "^2.22.2",
+    "wood-router": "^1.0.10"
+  }
+}
