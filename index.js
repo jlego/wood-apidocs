@@ -5,9 +5,10 @@
  */
 const Docx = require('./src/docx');
 
-module.exports = app => {
-  const Router = require('wood-router')(app);
+module.exports = (app = {}, config = {}) => {
+  app.Docx = Docx;
+  const Router = require('wood-router')(app).Router;
   app.application.use(app.express.static('docs'));
   Router().get(Docx.path, Docx.fun);
-  return Docx;
+  return app;
 }
